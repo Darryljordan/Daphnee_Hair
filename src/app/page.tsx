@@ -1,65 +1,75 @@
-import Image from "next/image";
+import Link from "next/link";
+import ReviewsSection from "@/components/ReviewsSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* Hero Section */}
+      <section
+        className="relative flex flex-col items-center justify-center text-center px-4"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1632&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "60vh",
+        }}
+      >
+        <div className="z-10">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4 animate-fade-in-up">
+            Welcome to Daphnee Hair
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-white text-lg md:text-2xl mb-6 animate-fade-in-up animate-delay-100">
+            Experience beauty, luxury, and relaxation.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/book"
+            className="inline-block bg-gradient-to-r from-purple-400 to-purple-700 text-white px-9 py-3.5 rounded-full font-bold text-lg shadow-lg hover:from-purple-700 hover:to-purple-400 hover:-translate-y-0.5 hover:scale-105 transition-all duration-200 no-underline animate-fade-in-up animate-delay-200"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Book Now
+          </Link>
         </div>
-      </main>
-    </div>
+        <svg
+          className="absolute bottom-0 left-0 w-full"
+          height="40"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#faf7f2"
+            fillOpacity="1"
+            d="M0,224L1440,320L1440,320L0,320Z"
+          />
+        </svg>
+      </section>
+
+      {/* About Section */}
+      <section className="bg-gradient-to-br from-purple-100 to-white py-16 px-4 rounded-xl shadow-lg my-12 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto">
+          <img
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+            alt="Salon interior"
+            className="rounded-xl shadow-lg w-full md:w-1/2 animate-fade-in-up"
+          />
+          <div className="w-full md:w-1/2 animate-fade-in-up animate-delay-100">
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">
+              About Us
+            </h2>
+            <p className="text-gray-700 text-lg mb-4">
+              At Daphnee Hair, we blend artistry and care to create your perfect
+              look in a relaxing, luxurious environment.
+            </p>
+            <Link
+              href="/services"
+              className="inline-block bg-white text-purple-700 px-7 py-3 rounded-full font-semibold border-2 border-purple-300 hover:bg-purple-50 hover:text-purple-900 transition-all duration-200 no-underline"
+            >
+              Our Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <ReviewsSection />
+    </>
   );
 }
